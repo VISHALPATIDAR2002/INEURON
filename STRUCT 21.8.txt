@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+struct Student
+{
+    int roll_no;
+    char name[20];
+    double mob_no;
+};
+int main()
+{
+   struct Student s[5];
+   int i;
+   for(i=0; i<5; i++)
+   {
+       printf("Enter student name\n");
+       fflush(stdin);
+       fgets(s[i].name,20,stdin);
+       s[i].name[strlen(s[i].name)-1]='\0';
+       printf("Enter student roll number\n");
+       scanf("%d",&s[i].roll_no);
+       
+       printf("Enter student mobile number\n");
+       scanf("%lf",&s[i].mob_no);
+   }
+    for(i=0; i<5; i++)
+    {
+        printf("NAME = %s ,ROLL_NO = %d ,MOB_NO = %f",s[i].name,s[i].roll_no,s[i].mob_no);
+        printf("\n");
+    }
+    return 0;
+}

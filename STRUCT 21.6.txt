@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <string.h>
+struct Employee 
+{
+    int id;
+    char name[20];
+    float salary;
+};
+void sort(struct Employee e[],int size)
+{    struct Employee temp;
+    int i,j;
+    for(i=0; i<size-1; i++)
+    {
+        for(j=i+1; j<size; j++)
+        {
+           if(strcmp(e[i].name,e[j].name) > 0)
+           {
+              temp=e[i];
+              e[i]=e[j];
+              e[j]=temp;
+           }
+        }
+    }
+    for(i=0; i<5; i++)
+    {
+        printf("NAME = %s ,ID = %d ,SALARY = %f",e[i].name,e[i].id,e[i].salary);
+        printf("\n");
+    }
+}
+int main()
+{
+   struct Employee e[10];
+   int i;
+   for(i=0; i<5; i++)
+   {
+       printf("Enter Employee name\n");
+       fflush(stdin);
+       fgets(e[i].name,20,stdin);
+       e[i].name[strlen(e[i].name)-1]='\0';
+       printf("Enter Employee id\n");
+       scanf("%d",&e[i].id);
+       
+       printf("Enter Employee salary\n");
+       scanf("%f",&e[i].salary);
+      
+   }
+   sort(e,5);
+    
+    return 0;
+}
